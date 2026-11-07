@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="GÉMINIS | Ropa deportiva y urbana en San Rafael, Mendoza. Comodidad, estilo y calidad. Consultá precios y talles por WhatsApp.">
+<meta name="theme-color" content="#0e0e0f">
+<link rel="icon" href="assets/logo.png">
+<title>GÉMINIS | Ropa Deportiva y Urbana</title>
+<style>
+:root{--bg:#0e0e0f;--card:#18181a;--text:#f2f1ee;--muted:#9b9a96;--accent:#e4e1d8;--line:#2a2a2d}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--text);line-height:1.5}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.aviso{background:var(--accent);color:#0e0e0f;text-align:center;font-size:.82rem;font-weight:600;padding:7px 5%}
+header{position:sticky;top:0;z-index:10;display:flex;justify-content:space-between;align-items:center;gap:12px;padding:10px 5%;background:rgba(14,14,15,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:2px}
+.brand img{width:36px;height:36px;border-radius:50%}
+.right{display:flex;align-items:center;gap:18px}
+nav{display:flex;gap:18px;font-size:.88rem;color:var(--muted)}
+nav a:hover{color:var(--text)}
+.btn-cart{background:none;border:1px solid var(--accent);border-radius:999px;padding:6px 14px;font-size:.88rem;font-weight:600;cursor:pointer}
+.btn-cart span{display:inline-block;min-width:1.3rem;margin-left:6px;padding:0 6px;border-radius:999px;background:var(--accent);color:#0e0e0f;text-align:center;font-size:.8rem}
+.hero{text-align:center;padding:40px 5% 60px;background:radial-gradient(circle at 50% 0,#26262a,transparent 65%)}
+.hero img{display:block;width:130px;height:130px;border-radius:50%;margin:0 auto 16px;border:2px solid var(--line)}
+.hero small{display:block;color:var(--muted);letter-spacing:3px;text-transform:uppercase;font-size:.72rem}
+.hero h1{font-size:clamp(2.4rem,9vw,4.2rem);letter-spacing:6px;margin:8px 0}
+.hero p{color:var(--muted);max-width:460px;margin:0 auto 26px}
+.btn{display:inline-block;padding:12px 26px;border-radius:999px;font-weight:600;border:1px solid var(--accent);margin:4px;cursor:pointer;font-size:.95rem;background:none;text-align:center}
+.btn.fill{background:var(--accent);color:#0e0e0f}
+.btn:hover{opacity:.85}
+section{padding:56px 5%;max-width:1100px;margin:auto}
+h2{font-size:1.7rem;margin-bottom:22px;text-align:center}
+.filters{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-bottom:28px}
+.filters button{background:none;color:var(--muted);border:1px solid var(--line);padding:8px 18px;border-radius:999px;cursor:pointer;font-size:.9rem}
+.filters button[aria-pressed="true"]{background:var(--accent);color:#0e0e0f;border-color:var(--accent)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:18px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;display:flex;flex-direction:column}
+.img{display:block;width:100%;aspect-ratio:4/5;background:#111;border:0;padding:0;cursor:pointer}
+.img img{width:100%;height:100%;object-fit:cover;display:block}
+.info{padding:14px;display:flex;flex-direction:column;gap:8px;flex:1}
+.info h3{font-size:1rem;letter-spacing:.5px}
+.price{font-weight:800;font-size:1.15rem}
+.talles,.cat{color:var(--muted);font-size:.82rem}
+.desc{color:var(--muted);font-size:.85rem;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.f-info .desc{display:block;font-size:.95rem;overflow:visible}
+.info .btn{margin:auto 0 0;font-size:.88rem;padding:10px}
+.contact{text-align:center}
+.contact p{color:var(--muted);margin-bottom:20px}
+.promos{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
+.promo{background:var(--card);border:1px dashed var(--accent);border-radius:16px;padding:18px;display:flex;flex-direction:column;gap:8px}
+.tag{align-self:flex-start;background:var(--accent);color:#0e0e0f;font-size:.72rem;font-weight:800;letter-spacing:1.5px;padding:3px 10px;border-radius:999px;text-transform:uppercase}
+.promo h3{font-size:1.1rem}
+.promo p{color:var(--muted);font-size:.9rem}
+.promo .precio{font-weight:800;font-size:1.3rem}
+.promo .precio s{color:var(--muted);font-weight:400;font-size:.9rem;margin-right:8px}
+.promo .btn{margin:auto 0 0;font-size:.88rem;padding:10px}
+footer{text-align:center;padding:28px 5% 90px;color:var(--muted);font-size:.8rem;border-top:1px solid var(--line)}
+.wa-flot{position:fixed;right:16px;bottom:16px;z-index:9;padding:12px 18px;border-radius:999px;background:#25d366;color:#0e0e0f;font-weight:700;font-size:.92rem;box-shadow:0 4px 14px rgba(0,0,0,.45)}
+
+dialog{background:var(--card);color:var(--text);border:1px solid var(--line)}
+dialog::backdrop{background:rgba(0,0,0,.7)}
+.ficha{width:min(56rem,94vw);max-height:92vh;margin:auto;border-radius:16px;overflow:auto;padding:0}
+.x{position:absolute;top:8px;right:12px;z-index:2;background:none;border:0;font-size:2rem;line-height:1;cursor:pointer}
+.f-body{padding:1.4rem}
+.f-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.6rem}
+.f-img img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:12px;background:#111}
+.thumbs{display:flex;gap:8px;margin-top:10px}
+.thumbs button{width:60px;aspect-ratio:4/5;padding:0;border:2px solid var(--line);border-radius:8px;overflow:hidden;background:#111;cursor:pointer}
+.thumbs button[aria-pressed="true"]{border-color:var(--accent)}
+.thumbs img{width:100%;height:100%;object-fit:cover;aspect-ratio:auto;border-radius:0}
+.f-info{display:flex;flex-direction:column;gap:10px}
+.f-info h3{font-size:1.5rem;letter-spacing:.5px}
+.lbl{color:var(--muted);font-size:.88rem;margin-top:6px}
+.lbl b{color:var(--text)}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chips button{background:none;border:1px solid var(--line);color:var(--muted);padding:6px 14px;border-radius:999px;font-size:.85rem;cursor:pointer}
+.chips button[aria-pressed="true"]{border-color:var(--accent);color:var(--text)}
+.f-info .btn{margin:4px 0 0}
+details.guia{margin-top:6px;font-size:.88rem;color:var(--muted)}
+details.guia summary{cursor:pointer}
+.tabla{overflow-x:auto;margin-top:8px}
+table{border-collapse:collapse;width:100%}
+th,td{border:1px solid var(--line);padding:6px 10px;text-align:center}
+.sim h4{margin:1.6rem 0 .8rem;font-size:1rem;color:var(--muted);font-weight:600}
+.sim-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.sim-grid button{background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:0;overflow:hidden;cursor:pointer;text-align:left}
+.sim-grid img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover}
+.sim-grid span{display:block;padding:6px 8px;font-size:.8rem}
+
+.carrito{margin:0 0 0 auto;height:100dvh;max-height:100dvh;width:min(24rem,100%);border-radius:0;padding:0;overflow:hidden}
+.carrito[open]{display:flex;flex-direction:column}
+.c-head{display:flex;justify-content:space-between;align-items:center;padding:1rem 1.2rem;border-bottom:1px solid var(--line)}
+.c-head h2{margin:0;font-size:1.2rem}
+.c-head .x{position:static}
+.items{flex:1;overflow-y:auto;list-style:none;padding:0 1.2rem}
+.item{padding:.9rem 0;border-bottom:1px solid var(--line)}
+.item span{color:var(--muted);font-size:.85rem;display:block}
+.item .fila{display:flex;align-items:center;gap:8px;margin-top:6px}
+.item .fila button{width:30px;height:30px;border:1px solid var(--line);border-radius:50%;background:none;cursor:pointer}
+.item .fila .quitar{margin-left:auto;width:auto;border:0;border-radius:0;color:var(--muted);text-decoration:underline;font-size:.85rem}
+.vacio{padding:2rem 0;color:var(--muted)}
+.pie{padding:1.2rem;border-top:1px solid var(--line)}
+.total{display:flex;justify-content:space-between;font-weight:800;font-size:1.2rem;margin-bottom:12px}
+.pie .btn{display:block;margin:0}
+.pie .btn[aria-disabled="true"]{opacity:.4;pointer-events:none}
+@media(max-width:640px){.f-grid{grid-template-columns:1fr}.sim-grid{grid-template-columns:repeat(3,1fr)}nav{display:none}}
+@media(max-width:480px){.grid{grid-template-columns:1fr 1fr;gap:12px}.info{padding:10px}}
+</style>
+</head>
+<body>
+
+<div class="aviso" id="aviso"></div>
+<header>
+  <a href="#inicio" class="brand"><img src="assets/logo.png" alt="Logo GÉMINIS">GÉMINIS</a>
+  <div class="right">
+    <nav>
+      <a href="#catalogo">Catálogo</a>
+      <a href="#contacto">Contacto</a>
+      <a href="https://www.instagram.com/gemiinis.sr/" target="_blank" rel="noopener">IG</a>
+    </nav>
+    <button class="btn-cart" id="abrir-cart" type="button" aria-label="Abrir mi pedido">Mi pedido<span id="cuenta">0</span></button>
+  </div>
+</header>
+
+<main id="inicio">
+  <div class="hero">
+    <img src="assets/logo.png" alt="Logo GÉMINIS">
+    <small>Ropa deportiva y urbana</small>
+    <h1>GÉMINIS</h1>
+    <p>Tu lado urbano y deportivo.<br>Comodidad, estilo y calidad.<br>Armá tu pedido y contactanos por WhatsApp para una atención personalizada.</p>
+    <a href="#catalogo" class="btn fill">Ver catálogo</a>
+  </div>
+
+  <section id="promos" hidden>
+    <h2>Promociones y combos</h2>
+    <div class="promos" id="promos-grid"></div>
+  </section>
+
+  <section id="catalogo">
+    <h2>Elegí tu prenda</h2>
+    <div class="filters" id="filters" role="group" aria-label="Filtrar por categoría"></div>
+    <div class="grid" id="grid"></div>
+  </section>
+
+  <section id="contacto" class="contact">
+    <h2>¿Consultas y talles?</h2>
+    <p>📍 San Rafael, Mendoza · Escribinos y te respondemos a la brevedad.</p>
+    <a class="btn fill" id="wa-main" target="_blank" rel="noopener">Escribir por WhatsApp</a>
+    <a class="btn" href="https://www.instagram.com/gemiinis.sr/" target="_blank" rel="noopener">Seguinos en Instagram</a>
+  </section>
+</main>
+
+<footer>© 2026 GÉMINIS · gemiinis.sr · San Rafael, Mendoza, Argentina</footer>
+<a class="wa-flot" id="wa-flot" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp">💬 WhatsApp</a>
+
+<dialog class="ficha" id="ficha" aria-label="Detalle de la prenda"></dialog>
+
+<dialog class="carrito" id="carrito" aria-label="Mi pedido">
+  <div class="c-head"><h2>Mi pedido</h2><button class="x" type="button" data-cerrar aria-label="Cerrar">×</button></div>
+  <ul class="items" id="items"></ul>
+  <div class="pie">
+    <div class="total"><span>Total</span><span id="total">$0</span></div>
+    <a class="btn fill" id="enviar" href="#" target="_blank" rel="noopener" aria-disabled="true">Enviar pedido por WhatsApp</a>
+  </div>
+</dialog>
+
+<script>
+/* ===== DATOS: editá solo esta parte ===== */
+const WHATSAPP = "5492604008446";
+const AVISO = "📍 San Rafael, Mendoza · Consultá precios y talles por WhatsApp";
+/* Guía de talles: dejala en null para ocultarla. Si tenés las medidas reales, completá así:
+   { cols: ["Talle","Ancho (cm)","Largo (cm)"], filas: [["L","56","70"],["XL","58","72"]] } */
+const GUIA = null;
+const T = ["L", "XL", "XXL", "XXXL"];
+/* Promociones y combos. Las de abajo son EJEMPLOS sin precios: reemplazalas por las promos reales de la tienda.
+   Campos: tag (etiqueta), titulo, texto, y opcionales precio (ej. "$85.000") y antes (precio anterior, solo si es real).
+   Dejá PROMOS = [] para ocultar toda la sección. */
+const PROMOS = [
+  { tag: "Combo", titulo: "Buzo Canguro + Jogging", texto: "Armá tu conjunto deportivo. Consultá el precio del combo." },
+  { tag: "Hinchas", titulo: "Casaca + Buzo Selección", texto: "Llevá tus colores de pies a cabeza. Preguntanos por la promo." },
+  { tag: "Ofertas", titulo: "Promos vigentes", texto: "Escribinos y te contamos las ofertas del momento." }
+];
+/* Cada prenda: op = fotos (assets/NOMBRE.jpg). Si tiene "etq" (Color, Camiseta...), las opciones son variantes
+   que se incluyen en el pedido. Si no tiene "etq", son solo vistas de la misma prenda. */
+const PRODUCTOS = [
+  { id: 1, nombre: "Buzo Oversize", cat: "Buzos", precio: 35000, talles: T,
+    desc: "Buzo de calce oversize, cómodo y con mucho estilo para el día a día.",
+    op: [{ n: "Frente", i: "oversize-frente" }, { n: "Espalda", i: "oversize-espalda" }] },
+  { id: 2, nombre: "Buzo Selección Argentina", cat: "Buzos", precio: 35000, talles: T,
+    desc: "Buzo de la Selección Argentina para alentar con estilo y comodidad.",
+    op: [{ n: "Puesto", i: "argentina-1" }, { n: "Frente", i: "argentina-2" }] },
+  { id: 3, nombre: "Buzo Canguro", cat: "Buzos", precio: 45000, talles: T, etq: "Color",
+    desc: "Buzo canguro cómodo, ideal para el día a día. Disponible en negro y gris.",
+    op: [{ n: "Negro", i: "canguro-negro" }, { n: "Gris", i: "canguro-gris" }] },
+  { id: 4, nombre: "Jogging", cat: "Pantalones", precio: 48000, talles: ["Único"], etq: "Color",
+    desc: "Jogging cómodo para entrenar o para el día a día. Talle único, en negro y gris.",
+    op: [{ n: "Negro", i: "jogging-negro" }, { n: "Gris", i: "jogging-gris" }] },
+  { id: 5, nombre: "Casaca Boca y River", cat: "Casacas", precio: 19000, talles: T, etq: "Camiseta",
+    desc: "Casacas de Boca y de River para llevar tus colores a todos lados.",
+    op: [{ n: "Boca", i: "boca" }, { n: "River", i: "river" }] },
+  { id: 6, nombre: "Chaleco Otoñal", cat: "Abrigos", precio: 45000, talles: T, etq: "Color",
+    desc: "Chaleco ideal para el entretiempo. Disponible en negro, verde oliva, marrón camel y beige.",
+    op: [{ n: "Negro", i: "chaleco-negro" }, { n: "Verde oliva", i: "chalecos" }, { n: "Marrón camel", i: "chalecos" }, { n: "Beige", i: "chalecos" }] }
+];
+/* ===== FIN DE LOS DATOS ===== */
+
+const $ = (s) => document.querySelector(s);
+const pesos = (n) => "$" + n.toLocaleString("es-AR");
+const link = (t) => `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(t)}`;
+const talleTxt = (p) => (p.talles.length === 1 && p.talles[0] === "Único" ? "Talle único" : "Talles: " + p.talles.join(" · "));
+const foto = (i) => `assets/${i}.jpg`;
+let cat = "Todo", cur = null, cart = [];
+try { cart = JSON.parse(localStorage.getItem("pedido") || "[]"); } catch (e) {}
+
+$("#aviso").textContent = AVISO;
+$("#wa-main").href = $("#wa-flot").href = link("¡Hola! Quiero hacer una consulta.");
+
+/* ---------- Promociones ---------- */
+function dibujarPromos() {
+  if (!PROMOS.length) return;
+  $("#promos").hidden = false;
+  $("#promos-grid").innerHTML = PROMOS.map((p) => `
+    <article class="promo">
+      <span class="tag">${p.tag}</span>
+      <h3>${p.titulo}</h3>
+      <p>${p.texto}</p>
+      ${p.precio ? `<div class="precio">${p.antes ? `<s>${p.antes}</s>` : ""}${p.precio}</div>` : ""}
+      <a class="btn" target="_blank" rel="noopener" href="${link(`¡Hola! Quiero consultar por la promo: ${p.titulo}.`)}">Consultar por WhatsApp</a>
+    </article>`).join("");
+}
+
+/* ---------- Catálogo ---------- */
+function dibujarFiltros() {
+  $("#filters").innerHTML = ["Todo", ...new Set(PRODUCTOS.map((p) => p.cat))].map((c) =>
+    `<button type="button" data-cat="${c}" aria-pressed="${c === cat}">${c}</button>`).join("");
+}
+function dibujarGrilla() {
+  $("#grid").innerHTML = PRODUCTOS.filter((p) => cat === "Todo" || p.cat === cat).map((p) => `
+    <article class="card">
+      <button class="img" type="button" data-ver="${p.id}" aria-label="Ver ${p.nombre}"><img src="${foto(p.op[0].i)}" alt="${p.nombre}" loading="lazy"></button>
+      <div class="info">
+        <h3>${p.nombre}</h3>
+        <span class="price">${pesos(p.precio)}</span>
+        ${p.desc ? `<p class="desc">${p.desc}</p>` : ""}
+        <span class="talles">${talleTxt(p)}</span>
+        <button class="btn fill" type="button" data-ver="${p.id}">Ver detalle</button>
+      </div>
+    </article>`).join("");
+}
+$("#filters").addEventListener("click", (e) => {
+  const b = e.target.closest("[data-cat]"); if (!b) return;
+  cat = b.dataset.cat; dibujarFiltros(); dibujarGrilla();
+});
+$("#grid").addEventListener("click", (e) => {
+  const b = e.target.closest("[data-ver]"); if (b) abrirFicha(+b.dataset.ver);
+});
+
+/* ---------- Ficha de producto ---------- */
+function abrirFicha(id) {
+  const p = PRODUCTOS.find((x) => x.id === id);
+  cur = { p, sel: 0, talle: p.talles[0] };
+  const imgs = [...new Set(p.op.map((o) => o.i))];
+  const otros = [...PRODUCTOS.filter((x) => x.id !== id && x.cat === p.cat), ...PRODUCTOS.filter((x) => x.id !== id && x.cat !== p.cat)].slice(0, 3);
+  const guia = GUIA ? `<details class="guia"><summary>Guía de talles</summary><div class="tabla"><table><thead><tr>${GUIA.cols.map((c) => `<th>${c}</th>`).join("")}</tr></thead><tbody>${GUIA.filas.map((f) => `<tr>${f.map((c) => `<td>${c}</td>`).join("")}</tr>`).join("")}</tbody></table></div></details>` : "";
+  $("#ficha").innerHTML = `
+    <button class="x" type="button" data-cerrar aria-label="Cerrar">×</button>
+    <div class="f-body">
+      <div class="f-grid">
+        <div class="f-img">
+          <img id="f-main" src="${foto(p.op[0].i)}" alt="${p.nombre}">
+          ${imgs.length > 1 ? `<div class="thumbs">${imgs.map((i) => `<button type="button" data-thumb="${i}" aria-label="Ver foto" aria-pressed="false"><img src="${foto(i)}" alt=""></button>`).join("")}</div>` : ""}
+        </div>
+        <div class="f-info">
+          <span class="cat">${p.cat}</span>
+          <h3>${p.nombre}</h3>
+          <div class="price">${pesos(p.precio)}</div>
+          ${p.desc ? `<p class="desc">${p.desc}</p>` : ""}
+          ${p.etq ? `<div class="lbl">${p.etq}: <b id="f-var"></b></div><div class="chips">${p.op.map((o, k) => `<button type="button" data-op="${k}" aria-pressed="false">${o.n}</button>`).join("")}</div>` : ""}
+          <div class="lbl">Talle</div>
+          <div class="chips">${p.talles.map((t) => `<button type="button" data-talle="${t}" aria-pressed="false">${t}</button>`).join("")}</div>
+          ${guia}
+          <button class="btn fill" id="f-add" type="button">Agregar a mi pedido</button>
+          <a class="btn" id="f-wa" target="_blank" rel="noopener">Consultar por WhatsApp</a>
+        </div>
+      </div>
+      <div class="sim"><h4>También te puede gustar</h4>
+        <div class="sim-grid">${otros.map((x) => `<button type="button" data-sim="${x.id}"><img src="${foto(x.op[0].i)}" alt="${x.nombre}" loading="lazy"><span>${x.nombre}<br>${pesos(x.precio)}</span></button>`).join("")}</div>
+      </div>
+    </div>`;
+  pintarFicha();
+  const d = $("#ficha"); if (!d.open) d.showModal(); d.scrollTop = 0;
+}
+function pintarFicha() {
+  const { p, sel, talle } = cur, o = p.op[sel], d = $("#ficha");
+  const m = d.querySelector("#f-main"); m.src = foto(o.i); m.alt = `${p.nombre}, ${o.n}`;
+  const v = d.querySelector("#f-var"); if (v) v.textContent = o.n;
+  d.querySelectorAll("[data-op]").forEach((b) => b.setAttribute("aria-pressed", +b.dataset.op === sel));
+  d.querySelectorAll("[data-thumb]").forEach((b) => b.setAttribute("aria-pressed", b.dataset.thumb === o.i));
+  d.querySelectorAll("[data-talle]").forEach((b) => b.setAttribute("aria-pressed", b.dataset.talle === talle));
+  d.querySelector("#f-wa").href = link(`¡Hola! Me interesa: ${p.nombre}${p.etq ? ` (${o.n})` : ""} - ${pesos(p.precio)}. ¿Hay stock en talle ${talle}?`);
+}
+$("#ficha").addEventListener("click", (e) => {
+  const d = $("#ficha"), t = e.target;
+  if (t === d || t.closest("[data-cerrar]")) return d.close();
+  const th = t.closest("[data-thumb]"); if (th) { cur.sel = cur.p.op.findIndex((o) => o.i === th.dataset.thumb); return pintarFicha(); }
+  const op = t.closest("[data-op]"); if (op) { cur.sel = +op.dataset.op; return pintarFicha(); }
+  const tl = t.closest("[data-talle]"); if (tl) { cur.talle = tl.dataset.talle; return pintarFicha(); }
+  const sim = t.closest("[data-sim]"); if (sim) return abrirFicha(+sim.dataset.sim);
+  if (t.closest("#f-add")) {
+    const { p, sel, talle } = cur, v = p.etq ? p.op[sel].n : "";
+    const ya = cart.find((i) => i.id === p.id && i.v === v && i.t === talle);
+    ya ? ya.c++ : cart.push({ id: p.id, v, t: talle, c: 1 });
+    dibujarCarrito();
+    const b = $("#f-add"); b.textContent = "Agregado ✓";
+    setTimeout(() => { if (b.isConnected) b.textContent = "Agregar a mi pedido"; }, 1000);
+  }
+});
+
+/* ---------- Carrito ---------- */
+function dibujarCarrito() {
+  cart = cart.filter((i) => PRODUCTOS.some((p) => p.id === i.id));
+  let total = 0, cant = 0, txt = "";
+  $("#items").innerHTML = cart.map((i, k) => {
+    const p = PRODUCTOS.find((x) => x.id === i.id);
+    total += p.precio * i.c; cant += i.c;
+    txt += `• ${i.c} x ${p.nombre}${i.v ? ` (${i.v})` : ""} - Talle ${i.t} - ${pesos(p.precio * i.c)}\n`;
+    return `<li class="item"><b>${p.nombre}</b><span>${i.v ? i.v + " · " : ""}Talle ${i.t} · ${pesos(p.precio)}</span>
+      <div class="fila"><button type="button" data-k="${k}" data-d="-1" aria-label="Quitar uno">−</button><span>${i.c}</span>
+      <button type="button" data-k="${k}" data-d="1" aria-label="Sumar uno">+</button>
+      <button type="button" class="quitar" data-q="${k}">Eliminar</button></div></li>`;
+  }).join("") || `<li class="vacio">Todavía no agregaste nada. Elegí una prenda del catálogo.</li>`;
+  $("#total").textContent = pesos(total);
+  $("#cuenta").textContent = cant;
+  const vacio = cart.length === 0;
+  $("#enviar").href = vacio ? "#" : link(`¡Hola! Quiero hacer este pedido:\n\n${txt}\nTotal: ${pesos(total)}`);
+  $("#enviar").setAttribute("aria-disabled", vacio);
+  try { localStorage.setItem("pedido", JSON.stringify(cart)); } catch (e) {}
+}
+$("#abrir-cart").addEventListener("click", () => $("#carrito").showModal());
+$("#carrito").addEventListener("click", (e) => {
+  const d = $("#carrito"), t = e.target;
+  if (t === d || t.closest("[data-cerrar]")) return d.close();
+  if (t.dataset.d !== undefined) { const i = cart[+t.dataset.k]; i.c += +t.dataset.d; if (i.c < 1) cart.splice(+t.dataset.k, 1); }
+  else if (t.dataset.q !== undefined) cart.splice(+t.dataset.q, 1);
+  else return;
+  dibujarCarrito();
+});
+$("#enviar").addEventListener("click", (e) => { if ($("#enviar").getAttribute("aria-disabled") === "true") e.preventDefault(); });
+
+dibujarFiltros(); dibujarGrilla(); dibujarCarrito(); dibujarPromos();
+</script>
+</body>
+</html>
